@@ -1,10 +1,13 @@
 package com.alura.foro.modelo.curso;
 
+import com.alura.foro.modelo.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity(name = "Curso")
 @Table(name = "cursos")
@@ -18,11 +21,16 @@ public class Curso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String categoria;
+    private String descripcion;
+    private LocalDateTime fechaCreacion;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "autor_id")
+    private Usuario autor;
 
-    public Curso(String nombre, String categoria) {
+    public Curso(String nombre, String descripcion, LocalDateTime fechaCreacion) {
         this.nombre = nombre;
-        this.categoria = categoria;
+        this.descripcion = descripcion;
+        this.fechaCreacion = fechaCreacion;
     }
 
     @Override
@@ -66,12 +74,12 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
 }

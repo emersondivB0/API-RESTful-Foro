@@ -21,15 +21,11 @@ public class Usuario {
     private String nombre;
     private String email;
     private String password;
-    @ManyToOne
-    @JoinColumn(name = "curso_id", referencedColumnName = "id")
-    private Curso curso;
 
     public Usuario(DatosRegistroUsuario datosRegistroUsuario, Curso curso) {
         this.nombre = datosRegistroUsuario.nombre();
         this.email = datosRegistroUsuario.email();
         this.password = datosRegistroUsuario.password();
-        this.curso = curso;
     }
 
 
