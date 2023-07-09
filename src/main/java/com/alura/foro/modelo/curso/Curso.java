@@ -21,16 +21,29 @@ public class Curso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String descripcion;
-    private LocalDateTime fechaCreacion;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "autor_id")
-    private Usuario autor;
+    private String categoria;
+    private boolean activo = true;
 
-    public Curso(String nombre, String descripcion, LocalDateTime fechaCreacion) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fechaCreacion = fechaCreacion;
+    public Curso(DatosRegistroCurso datosRegistroCurso) {
+        this.nombre = datosRegistroCurso.nombre();
+        this.categoria = datosRegistroCurso.categoria();
+    }
+
+    public void actualizarDatos(DatosActualizarCurso datosActualizarCurso) {
+        if (datosActualizarCurso.nombre() != null) {
+            this.nombre = datosActualizarCurso.nombre();
+        }
+        if (datosActualizarCurso.categoria() != null) {
+            this.categoria = datosActualizarCurso.categoria();
+        }
+    }
+
+    public void desactivarCurso() {
+        this.activo = false;
+    }
+
+    public void activarCurso() {
+        this.activo = true;
     }
 
     @Override
@@ -74,12 +87,12 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
 }
