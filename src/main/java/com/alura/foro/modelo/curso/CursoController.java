@@ -36,17 +36,26 @@ public class CursoController {
     }
 
     @DeleteMapping("/admin/{id}")
-    public void eliminarCurso(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarCurso(@PathVariable Long id) {
         Curso curso = cursoRepository.getReferenceById(id);
         cursoRepository.delete(curso);
+        return ResponseEntity.ok().build();
     }
 
+    /*
+    This code will return a 200 OK status code if the Curso object was deleted successfully.
+    If the Curso object was not found, the method will return a 404 Not Found status code.
+    In both DeleteMappings
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Curso> ocultarCurso(@PathVariable Long id) {
         Curso curso = cursoRepository.getReferenceById(id);
+        if (curso == null) {
+            return ResponseEntity.notFound().build();
+        }
         curso.desactivarCurso();
         cursoRepository.save(curso);
-        return ResponseEntity.ok(curso);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/activar/{id}")
@@ -55,6 +64,6 @@ public class CursoController {
         Curso curso = cursoRepository.getReferenceById(id);
         curso.activarCurso();
         cursoRepository.save(curso);
-        return ResponseEntity.ok(curso);
+        return ResponseEntity.noContent().build();
     }
 }

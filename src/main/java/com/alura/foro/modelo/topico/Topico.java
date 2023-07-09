@@ -29,7 +29,7 @@ public class Topico {
     @Column(name= "curso_id")
     private int curso_id;
 
-    private boolean activo;
+    private boolean activo = true;
 
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     @Enumerated(EnumType.STRING)
@@ -49,7 +49,6 @@ public class Topico {
         this.curso_id = datosRegistroTopico.curso_id();
         this.autor = autor;
         this.curso = curso;
-        this.activo = true;
     }
 
     public void actualizarDatos(DatosActualizarTopico datosActualizarTopico) {
