@@ -25,6 +25,11 @@ public class Respuesta {
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     private Usuario autor;
     private Boolean solucion = false;
+    @Column(name = "usuario_id")
+    private int usuario_id;
+    @Column(name = "curso_id")
+    private int curso_id;
 
+    public Respuesta(DatosRegistroRespuesta )
 
 }
