@@ -41,7 +41,7 @@ public class Respuesta {
     @JoinColumn(name = "usuario_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Curso curso;
 
-    public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta, Usuario usuario, Curso curso) {
+    public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta,Topico topico, Usuario usuario, Curso curso) {
         this.mensaje = datosRegistroRespuesta.mensaje();
         this.solucion = datosRegistroRespuesta.solucion();
         this.topico_id = datosRegistroRespuesta.topico_id();
