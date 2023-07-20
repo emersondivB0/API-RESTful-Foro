@@ -1,17 +1,17 @@
-# Challenge ONE | Back End | Foro Alura 
+# API RESTful | Back-end | Foro Alura 
 
 <p align="center" >
      <img width="200" heigth="200" src="https://user-images.githubusercontent.com/91544872/209678377-70b50b21-33de-424c-bed8-6a71ef3406ff.png">
 </p>
 
-### ¡Bienvenido al proyecto del desafío Foro Alura con Java y Spring! 
+### ¡Welcome to the project challenge Foro Alura con Java y Spring! 
 
 
-### Pasos principales:
+### First steps:
 
-#### ⭐Marca este proyecto con una estrella 
+#### ⭐ Star this project
 
-- ### Tecnologías utilizadas:
+- ### Used technologies:
 
   - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
   - [MySql](https://www.mysql.com/)
