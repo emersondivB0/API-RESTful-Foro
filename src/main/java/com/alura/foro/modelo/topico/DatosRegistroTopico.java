@@ -1,6 +1,5 @@
 package com.alura.foro.modelo.topico;
 
-import com.alura.foro.modelo.usuario.DatosRegistroUsuario;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

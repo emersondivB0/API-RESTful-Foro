@@ -18,19 +18,37 @@ VALUES
     ("Ricardo Silva", "ricardo@example.com", "qwerty"),
     ("Isabel Torres", "isabel@example.com", "pass1234");
 
-INSERT INTO cursos (nombre, descripcion, autor_id)
+INSERT INTO cursos (nombre, categoria)
 VALUES
-    ("Spring Boot", "Creación de API Rest con Java y Spring Boot", FLOOR(RAND() * 10) + 1),
-    ("JavaScript Avanzado", "Desarrollo de aplicaciones web interactivas con JavaScript", FLOOR(RAND() * 10) + 1),
-    ("Python para Ciencia de Datos", "Introducción al análisis de datos con Python", FLOOR(RAND() * 10) + 1),
-    ("Introducción a la Programación", "Conceptos fundamentales de programación con ejemplos prácticos", FLOOR(RAND() * 10) + 1),
-    ("Diseño Web Responsive", "Creación de sitios web adaptables a diferentes dispositivos", FLOOR(RAND() * 10) + 1),
-    ("Desarrollo de Aplicaciones Móviles", "Creación de aplicaciones móviles para iOS y Android", FLOOR(RAND() * 10) + 1),
-    ("Bases de Datos Relacionales", "Fundamentos de diseño y administración de bases de datos relacionales", FLOOR(RAND() * 10) + 1),
-    ("Desarrollo de Videojuegos", "Introducción a la creación de videojuegos utilizando motores populares", FLOOR(RAND() * 10) + 1),
-    ("Machine Learning", "Aplicaciones prácticas de algoritmos de aprendizaje automático", FLOOR(RAND() * 10) + 1),
-    ("Desarrollo de Aplicaciones Web con Django", "Creación de aplicaciones web utilizando el framework Django", FLOOR(RAND() * 10) + 1);
+    ("Spring Boot", "Creación de API Rest con Java y Spring Boot"),
+    ("JavaScript Avanzado", "Desarrollo de aplicaciones web interactivas con JavaScript"),
+    ("Python para Ciencia de Datos", "Introducción al análisis de datos con Python"),
+    ("Introducción a la Programación", "Conceptos fundamentales de programación con ejemplos prácticos"),
+    ("Diseño Web Responsive", "Creación de sitios web adaptables a diferentes dispositivos"),
+    ("Desarrollo de Aplicaciones Móviles", "Creación de aplicaciones móviles para iOS y Android"),
+    ("Bases de Datos Relacionales", "Fundamentos de diseño y administración de bases de datos relacionales"),
+    ("Desarrollo de Videojuegos", "Introducción a la creación de videojuegos utilizando motores populares"),
+    ("Machine Learning", "Aplicaciones prácticas de algoritmos de aprendizaje automático"),
+    ("Desarrollo de Aplicaciones Web con Django", "Creación de aplicaciones web utilizando el framework Django");
 
 UPDATE topicos SET activo = 1 WHERE id = 5;
+UPDATE usuarios SET activo = 1;
+UPDATE topicos SET activo = 1;
 SELECT * FROM topicos;
 SELECT * FROM usuarios;
+
+CREATE TABLE flyway_schema_history (
+    version VARCHAR(50) NOT NULL,
+    description VARCHAR(200) NOT NULL,
+    type VARCHAR(20) NOT NULL,
+    script VARCHAR(1000) NOT NULL,
+    checksum INT,
+    installed_by VARCHAR(100) NOT NULL,
+    installed_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    execution_time INT NOT NULL,
+    success BOOLEAN NOT NULL
+);
+
+-- Add the baseline version
+INSERT INTO flyway_schema_history (version, description, type, script, checksum, installed_by, installed_on, execution_time, success)
+VALUES ('1', 'Baseline', 'BASELINE', 'V1__baseline.sql', 0, 'flyway', CURRENT_TIMESTAMP, 0, true);

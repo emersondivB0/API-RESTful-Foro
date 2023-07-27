@@ -46,7 +46,6 @@ public class Respuesta {
         this.solucion = datosRegistroRespuesta.solucion();
         this.topico_id = datosRegistroRespuesta.topico_id();
         this.usuario_id = datosRegistroRespuesta.usuario_id();
-        this.curso_id = datosRegistroRespuesta.curso_id();
         this.topico = topico;
         this.usuario = usuario;
         this.curso = curso;
