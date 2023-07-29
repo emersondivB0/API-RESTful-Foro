@@ -83,7 +83,7 @@ Contributions are welcome! Please feel free to open issues and pull requests.
   - [Java 17](https://www.java.com/en/)
   - [Spring Boot 3.1.0](https://start.spring.io)
   - [Spring Security](https://start.spring.io/)
-  - [Token JWT]([https://jwt.io/](https://github.com/auth0/java-jwt))
+  - [Token JWT](https://github.com/auth0/java-jwt)
 
 💙 Emerson González
 
