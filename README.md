@@ -11,7 +11,72 @@
 
 #### ⭐ Star this project
 
-- ### Used technologies:
+# Forum API
+
+![GitHub repo size](https://img.shields.io/github/repo-size/emersondivB0/API-RESTful-Foro)
+![GitHub contributors](https://img.shields.io/github/contributors/emersondivB0/API-RESTful-Foro)
+![GitHub stars](https://img.shields.io/github/stars/emersondivB0/API-RESTful-Foro?style=social)
+![GitHub forks](https://img.shields.io/github/forks/emersondivB0/API-RESTful-Foro?style=social)
+
+## Description
+
+Forum API is a RESTful API developed using Java, Spring Boot, Lombok, Jakarta, MySQL, and JWT. It allows users to manage posts, responses to the posts, and user authentication.
+
+## Features
+
+- Create, Read, Update, and Delete (CRUD) operations for posts and responses.
+- User authentication with JWT and BCrypt for secure access.
+- Two types of delete operations: normal delete and boolean delete.
+- Flyway integration for database schema management.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Endpoints](#endpoints)
+- [Authentication](#authentication)
+- [Contributing](#contributing)
+- [Technologies](#technologies)
+
+## Installation
+
+1. Clone the repository.
+
+2. Install the required dependencies.
+
+3. Run the application.
+
+## Usage
+
+- Make HTTP requests to the API endpoints to manage posts, responses, and users.
+- Ensure you have the necessary authentication token (JWT) to access secure endpoints.
+
+## Endpoints
+
+- **GET /topics**: Get all topics.
+- **GET /topics/{topicId}**: Get a specific topic by ID.
+- **POST /topics**: Create a new topic.
+- **PUT /topics/{topicId}**: Update an existing topic.
+- **DELETE /topics/admin/{topicId}**: Delete a topic (normal delete).
+- **DELETE /topics/{topicId}**: Soft delete a topic (boolean delete).
+
+- **GET /responds**: Get all responses.
+- **POST /responds**: Create a new response.
+- **DELETE /responses/{responseId}**: Soft delete a response (boolean delete).
+
+- **POST /login**: User login to get JWT token.
+- **POST /register**: Register a new user.
+
+## Authentication
+
+- For secure endpoints, include the JWT token in the Authorization header with the Bearer scheme. I used Auth0.
+
+## Contributing
+
+Contributions are welcome! Please feel free to open issues and pull requests.
+
+
+## Used technologies:
 
   - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
   - [MySql](https://www.mysql.com/)
