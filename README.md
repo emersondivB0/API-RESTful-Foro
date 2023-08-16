@@ -76,14 +76,14 @@ Forum API is a RESTful API developed using Java, Spring Boot, Lombok, Jakarta, M
 Contributions are welcome! Please feel free to open issues and pull requests.
 
 
-## Used technologies:
+## Technologies:
 
   - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
   - [MySql](https://www.mysql.com/)
   - [Java 17](https://www.java.com/en/)
   - [Spring Boot 3.1.0](https://start.spring.io)
   - [Spring Security](https://start.spring.io/)
-  - [Token JWT](https://jwt.io/)
+  - [Token JWT](https://github.com/auth0/java-jwt)
 
 💙 Emerson González
 
