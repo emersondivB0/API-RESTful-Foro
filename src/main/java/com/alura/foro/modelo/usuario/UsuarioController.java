@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping
     public ResponseEntity<Page<DatosListadoUsuario>> listadoUsuarios(@PageableDefault(size = 5) Pageable pageable) {
@@ -28,6 +31,8 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> crearUsuario(@RequestBody @Valid Usuario usuario) {
+        String passEncriptada = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(passEncriptada);
         Usuario nuevoUsuario = usuarioRepository.save(usuario);
         return ResponseEntity.ok(nuevoUsuario);
     }
@@ -36,6 +41,8 @@ public class UsuarioController {
     @Transactional
     public ResponseEntity actualizarUsuario(@RequestBody @Valid DatosActualizarUsuario datosActualizarUsuario) {
         Usuario usuario = usuarioRepository.getReferenceById(datosActualizarUsuario.id());
+        String passEncriptada = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(passEncriptada);
         usuario.actualizarDatos(datosActualizarUsuario);
         return ResponseEntity.ok(new DatosRespuestaUsuario(usuario.getId(), usuario.getNombre(), usuario.getEmail(),
                 usuario.getPassword()));
